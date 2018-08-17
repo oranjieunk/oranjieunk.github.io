@@ -1,8 +1,8 @@
 # Site settings
-title: Corikachu
-email: corikachu at gmail.com
+title: Fresh oranjieun
+email: jieun.kim0413 at gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  즐겁게 개발하며 배운 것을 풀어놓는 Corikachu 블로그
+  Fresh한 어른으로 살고 싶은 oranjieun의 블로그입니다
 baseurl: "" # the subpath of your site
 # url: "https://corikachu.github.io" # the base hostname & protocol
 gems:
@@ -28,26 +28,26 @@ kramdown:
 
 
 owner:
-  name: Corikachu
+  name: oranjieun
   avatar: avatar.png
   avatar-width: 300
   avatar-height: 300
   job: "developer"
-  bio: "세상을 즐겁게 살고픈 소신있는 개발자"
+  bio: "Cheerful and Adventurous Analyst"
   email:
-  disqus-shortname: corikachu
+  disqus-shortname: oranjieun
   twitter:
-  facebook: corikachu
+  facebook: jieun.kim0413
   google:
     plus:
-    analytics: UA-80877473-1
+    # analytics: UA-80877473-1
     verify:
     ad-client:
     ad-slot:
   bing-verify:
-  github: corikachu
+  github: oranjieunk
   stackoverflow: #123456/username   from a "http://stackoverflow.com/users/123456/username" link
-  linkedin: corikachu
+  linkedin: jieun.kim0413
   xing:
   instagram:
   lastfm:
