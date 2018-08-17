@@ -1,0 +1,23 @@
+<script type="text/javascript" src="{{ site.url }}/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="{{ site.url }}/js/main.js"></script>
+{% if site.owner.google.analytics %}
+<!-- Asynchronous Google Analytics snippet -->
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', '{{ site.owner.google.analytics }}', 'auto');
+
+    ga('require', 'cleanUrlTracker');
+    ga('require', 'eventTracker');
+    ga('require', 'impressionTracker');
+    ga('require', 'mediaQueryTracker');
+    ga('require', 'outboundFormTracker');
+    ga('require', 'outboundLinkTracker');
+    ga('require', 'pageVisibilityTracker');
+    ga('require', 'socialWidgetTracker');
+    ga('require', 'urlChangeTracker');
+
+    ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script type="text/javascript" src="{{ site.url }}/js/autotrack.js"></script>
+{% endif %}
