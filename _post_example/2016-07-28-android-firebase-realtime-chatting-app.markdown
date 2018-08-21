@@ -4,8 +4,8 @@ title: "[Android] Firebase의 Realtime Database로 간단한 채팅 앱 만들�
 excerpt: "Firebase의 Realtime Database로 채팅 어플리케이션을 만들어 봅시다."
 date: 2016-07-28 01:00:00 +0900
 categories: [android, firebase]
-modified: 2016-08-08 
-last_modified_at: 2016-08-08 
+modified: 2016-08-08
+last_modified_at: 2016-08-08
 comments: true
 image:
   feature: https://cloud.githubusercontent.com/assets/4270075/17187728/65dc1042-5475-11e6-8b48-8b8be027f6a4.png
@@ -19,7 +19,7 @@ redirect_from:
 
 
 ## Firebase의 Realtime Database
-Firebase의 Realtime Database는 NoSQL기반 cloud-hosted database입니다. 실시간으로 모든 클라이언트에서 데이터가 동기화 되고, 앱이 오프라인 상태라도 계속 사용할 수 있습니다. Data는 Json tree 형태로 저장이 됩니다. 
+Firebase의 Realtime Database는 NoSQL기반 cloud-hosted database입니다. 실시간으로 모든 클라이언트에서 데이터가 동기화 되고, 앱이 오프라인 상태라도 계속 사용할 수 있습니다. Data는 Json tree 형태로 저장이 됩니다.
 
 
 #### 만들 앱의 Preview
@@ -34,7 +34,7 @@ Firebase의 Realtime Database는 NoSQL기반 cloud-hosted database입니다. 실
 [Firebase 홈페이지][firebase]에서 Get Started With Free를 클릭해서 Firebase 프로젝트를 만들 수 있는 곳으로 옵니다. 프로젝트 만들기로 프로젝트 이름을 넣고 프로젝트를 생성합니다.
 
 프로젝트를 만들고나서 `Android 앱에 Firebase를 추가`를 클릭해서 다음과 같은 창을 띄웁니다. 저는 패키지 이름을 `com.testproject.corikachu`로 설정하고 안드로이드 앱을 `Firebasetest`로 만들었습니다. 디버그 서명 인증서는 그냥 두고 진행하셔도 됩니다.  
-  
+
 ![first-setting](https://cloud.githubusercontent.com/assets/4270075/17189387/25e2ea40-547c-11e6-9633-ee0884a893dd.png){: .center-image}
 
 
@@ -78,7 +78,7 @@ dependencies {
 {% endhighlight %}
 
 ## 안드로이드 코드 작성
-xml 레이아웃 파일을 다루는 부분은 넘어가겠습니다. 제일 처음의 preview에서 보는 것과 같이 하나의 ListView와 EditText 그리고 Button으로 구성되어 있습니다. 
+xml 레이아웃 파일을 다루는 부분은 넘어가겠습니다. 제일 처음의 preview에서 보는 것과 같이 하나의 ListView와 EditText 그리고 Button으로 구성되어 있습니다.
 
 ### 채팅을 데이터를 담을 DTO(Data Transfer Object)
 데이터를 옮겨 담을 `ChatData 클래스`를 하나 만들겁니다. 유저의 이름과 채팅 메세지를 담을 수 있게 만듭니다. 이때 `빈 생성자`는 하나 꼭 만듭니다.
@@ -86,7 +86,7 @@ xml 레이아웃 파일을 다루는 부분은 넘어가겠습니다. 제일 처
 public class ChatData {
     private String userName;
     private String message;
-    
+
     public ChatData() { }
 
     public ChatData(String userName, String message) {
@@ -117,14 +117,14 @@ public class ChatData {
 이제 실제로 Firebase를 연동해 볼 차례입니다. 우선 각 view들을 연결해줍니다.  
 
 {% highlight java %}
-listView = (ListView) findViewById(R.id.listView); 
-editText = (EditText) findViewById(R.id.editText); 
-sendButton = (Button) findViewById(R.id.button); 
+listView = (ListView) findViewById(R.id.listView);
+editText = (EditText) findViewById(R.id.editText);
+sendButton = (Button) findViewById(R.id.button);
 
 userName = "user" + new Random().nextInt(10000);  // 랜덤한 유저 이름 설정 ex) user1234
 
-// 기본 Text를 담을 수 있는 simple_list_item_1을 사용해서 ArrayAdapter를 만들고 listview에 설정 
-adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1); 
+// 기본 Text를 담을 수 있는 simple_list_item_1을 사용해서 ArrayAdapter를 만들고 listview에 설정
+adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1);
 listView.setAdapter(adapter);
 {% endhighlight %}
 
@@ -153,13 +153,13 @@ databaseReference.child("message").addChildEventListener(new ChildEventListener(
         ChatData chatData = dataSnapshot.getValue(ChatData.class);  // chatData를 가져오고
         adapter.add(chatData.getUserName() + ": " + chatData.getMessage());  // adapter에 추가합니다.
     }
-    
+
     @Override
     public void onChildChanged(DataSnapshot dataSnapshot, String s) { }
-    
+
     @Override
     public void onChildRemoved(DataSnapshot dataSnapshot) { }
-    
+
     @Override
     public void onChildMoved(DataSnapshot dataSnapshot, String s) { }
 
