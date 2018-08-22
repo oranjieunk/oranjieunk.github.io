@@ -2,7 +2,7 @@
 title: Fresh oranjieun
 email: jieun.kim0413 at gmail.com
 description: > # this means to ignore newlines until "baseurl:"
-  Fresh한 어른으로 살고 싶은 oranjieun의 기술 블로그입니다
+  Fresh한 어른으로 살고 싶은 oranjieun의 블로그입니다
 baseurl: "" # the subpath of your site
 # url: "https://corikachu.github.io" # the base hostname & protocol
 gems:
